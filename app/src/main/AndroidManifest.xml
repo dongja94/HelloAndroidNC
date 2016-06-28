@@ -18,7 +18,9 @@
         <activity android:name=".MyActivity" />
         <activity android:name=".LinearActivity" />
         <activity android:name=".RelativeActivity" />
-        <activity android:name=".GridActivity"></activity>
+        <activity android:name=".GridActivity" />
+        <activity android:name=".TextActivity"
+            android:windowSoftInputMode="adjustResize|stateVisible"></activity>
     </application>
 
 </manifest>
