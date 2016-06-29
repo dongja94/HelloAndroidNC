@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -25,6 +27,22 @@ public class CustomListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bigView.setVisibility(View.GONE);
+            }
+        });
+        View headerView = getLayoutInflater().inflate(R.layout.view_header, listView, false);
+        listView.addHeaderView(headerView, "header view", true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object data = listView.getItemAtPosition(position);
+                String message = null;
+                if (data instanceof String) {
+                    message = (String)data;
+                } else {
+                    Person p = (Person) data;
+                    message = p.getName();
+                }
+                Toast.makeText(CustomListActivity.this, "person : " + message, Toast.LENGTH_SHORT).show();
             }
         });
         mAdapter = new PersonAdapter();
