@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_items">
+        <item>item 0</item>
+        <item>item 1</item>
+        <item>item 2</item>
+        <item>item 3</item>
+        <item>item 4</item>
+        <item>item 5</item>
+        <item>item 6</item>
+        <item>item 7</item>
+        <item>item 8</item>
+        <item>item 9</item>
+        <item>child item 0</item>
+        <item>child item 1</item>
+        <item>child item 2</item>
+        <item>child item 3</item>
+        <item>child item 4</item>
+        <item>child item 5</item>
+        <item>child item 6</item>
+        <item>child item 7</item>
+        <item>child item 8</item>
+        <item>child item 9</item>
+    </string-array>
+</resources>

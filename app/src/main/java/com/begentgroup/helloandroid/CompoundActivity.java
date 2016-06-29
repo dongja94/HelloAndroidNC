@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class CompoundActivity extends AppCompatActivity {
 
@@ -16,6 +17,13 @@ public class CompoundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compound);
         personView = (PersonView)findViewById(R.id.cv_person);
+
+        personView.setOnPictureClickListener(new PersonView.OnPictureClickListener() {
+            @Override
+            public void onPictureClick(Person person) {
+                Toast.makeText(CompoundActivity.this, "person : " + person.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Button btn = (Button)findViewById(R.id.btn_person);
         btn.setOnClickListener(new View.OnClickListener() {

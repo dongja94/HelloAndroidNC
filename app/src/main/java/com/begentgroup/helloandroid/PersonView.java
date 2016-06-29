@@ -2,6 +2,7 @@ package com.begentgroup.helloandroid;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +31,24 @@ public class PersonView extends FrameLayout {
         pictureView = (ImageView)findViewById(R.id.image_picture);
         nameView = (TextView)findViewById(R.id.text_name);
         ageView = (TextView)findViewById(R.id.text_age);
+
+        pictureView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onPictureClick(person);
+                }
+            }
+        });
+    }
+
+    public interface OnPictureClickListener {
+        public void onPictureClick(Person person);
+    }
+
+    OnPictureClickListener mListener;
+    public void setOnPictureClickListener(OnPictureClickListener listener) {
+        mListener = listener;
     }
 
     Person person;

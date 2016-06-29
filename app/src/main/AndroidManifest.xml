@@ -22,7 +22,8 @@
         <activity
             android:name=".TextActivity"
             android:windowSoftInputMode="adjustResize|stateVisible" />
-        <activity android:name=".CompoundActivity"></activity>
+        <activity android:name=".CompoundActivity" />
+        <activity android:name=".SimpleListActivity"></activity>
     </application>
 
 </manifest>
