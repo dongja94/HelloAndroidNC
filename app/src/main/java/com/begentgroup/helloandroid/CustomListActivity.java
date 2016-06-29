@@ -3,6 +3,8 @@ package com.begentgroup.helloandroid;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.Random;
@@ -11,13 +13,28 @@ public class CustomListActivity extends AppCompatActivity {
 
     ListView listView;
     PersonAdapter mAdapter;
+    ImageView bigView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_list);
         listView = (ListView)findViewById(R.id.listView3);
+        bigView = (ImageView)findViewById(R.id.image_big);
+        bigView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bigView.setVisibility(View.GONE);
+            }
+        });
         mAdapter = new PersonAdapter();
+        mAdapter.setOnAdapterPictureClickListener(new PersonAdapter.OnAdapterPictureClickListener() {
+            @Override
+            public void onPictureClick(Person p) {
+                bigView.setImageDrawable(p.getPicture());
+                bigView.setVisibility(View.VISIBLE);
+            }
+        });
         listView.setAdapter(mAdapter);
 
         initData();
